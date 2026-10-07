@@ -1,11 +1,11 @@
-package net.mofusya.examplemod.data;
+package net.mofusya.mek_meteorites.data;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
-import net.mofusya.examplemod.C;
+import net.mofusya.mek_meteorites.C;
 
 import java.util.ArrayList;
 

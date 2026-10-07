@@ -1,4 +1,4 @@
-package net.mofusya.examplemod.data;
+package net.mofusya.mek_meteorites.data;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -7,7 +7,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.mofusya.examplemod.C;
+import net.mofusya.mek_meteorites.C;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;

@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.mofusya.examplemod.mixin",
+  "package": "net.mofusya.mek_meteorites.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "examplemod.refmap.json",
+  "refmap": "mek_meteorites.refmap.json",
   "mixins": [
   ],
   "client": [
