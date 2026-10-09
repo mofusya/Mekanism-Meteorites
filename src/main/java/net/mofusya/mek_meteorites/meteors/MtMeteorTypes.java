@@ -13,8 +13,6 @@ import net.mofusya.mek_meteorites.meteors.meteor.MeteorType;
 import java.util.List;
 import java.util.function.Supplier;
 
-import static net.mofusya.mek_meteorites.R.METEOR_TYPE_REGISTRY_KEY;
-
 public class MtMeteorTypes {
 
     public static final DeferredRegister<IMeteorType> R = DeferredRegister.create(new ResourceLocation(C.MOD_ID, "meteor_type"), C.MOD_ID);
