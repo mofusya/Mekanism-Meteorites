@@ -4,7 +4,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.mofusya.mek_meteorites.util.MeteorUtils;
+import net.mofusya.mek_meteorites.meteors.MeteorUtils;
 
 @Mod.EventBusSubscriber
 public class ServerEvents {

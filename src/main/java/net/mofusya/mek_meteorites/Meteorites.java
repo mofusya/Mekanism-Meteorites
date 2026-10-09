@@ -1,7 +1,6 @@
 package net.mofusya.mek_meteorites;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -17,7 +16,12 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegistryObject;
-import net.mofusya.mek_meteorites.util.MeteorUtils;
+import net.mofusya.mek_meteorites.config.MtJsonConfig;
+import net.mofusya.mek_meteorites.config.MtJsonConfigUtils;
+import net.mofusya.mek_meteorites.meteors.IMeteorType;
+import net.mofusya.mek_meteorites.meteors.MeteorTypeRegister;
+import net.mofusya.mek_meteorites.meteors.MtMeteorTypes;
+import net.mofusya.mek_meteorites.meteors.MeteorUtils;
 import net.mofusya.ornatelib.registries.OrnateItemRegister;
 import org.slf4j.Logger;
 
@@ -35,6 +39,15 @@ public class Meteorites
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         R.register(modEventBus);
+        MtMeteorTypes.R.register();
+        MtJsonConfig.BASE_SERVER_CONFIG.load();
+        MtJsonConfig.ADVANCED_SERVER_CONFIG.load();
+
+        MeteorTypeRegister R = new MeteorTypeRegister();
+        for (IMeteorType customMeteorType : MtJsonConfigUtils.getCustomMeteorTypes()) {
+            R.register(customMeteorType);
+        }
+        R.register();
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -55,7 +68,7 @@ public class Meteorites
         @Override
         public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
             if (level instanceof ServerLevel server){
-                MeteorUtils.spawnMeteor(server, player.getOnPos().relative(Direction.UP, 20));
+                MeteorUtils.spawnRandomMeteor(server, player.getOnPos().relative(Direction.UP, 20));
                 return InteractionResultHolder.success(player.getItemInHand(hand));
             }
 
