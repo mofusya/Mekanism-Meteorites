@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.mofusya.mek_meteorites.R;
 import net.mofusya.mek_meteorites.meteors.meteor.MeteorType;
 
 import java.util.ArrayDeque;
@@ -107,7 +108,7 @@ public class MeteorUtils {
     }
 
     public static void spawnRandomMeteor(ServerLevel sever, BlockPos pos) {
-        var allMeteorTypes = MeteorTypeManager.get().values().stream().toList();
+        var allMeteorTypes = MtMeteorTypes.REGISTRY.get().getValues().stream().toList();
         IMeteorType meteorType = allMeteorTypes.get(Mth.nextInt(RandomSource.create(), 0, allMeteorTypes.size() - 1));
         spawnMeteor(sever, meteorType, pos);
     }
